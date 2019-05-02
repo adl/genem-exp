@@ -36,7 +36,7 @@ The following files are supplied:
 - [`spot-2.7.4.dev.tar.gz`](spot-2.7.4.dev.tar.gz): The development version of Spot used for this benchmark.  This will eventually be released as Spot 2.8.
 
 
-The easiest way to play with those files is via mybinder [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/adl/genem-exp.git/master?urlpath=lab%2Ftree%2Fbench-app1%2F).
+The easiest way to play with those files is via mybinder [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/adl/genem-exp.git/master?urlpath=lab%2Ftree%2Fbench-app1).
 Clicking the previous link will setup a Jupyter instance in the cloud, including a copy of Spot, as well as the necessary Python and R dependencies for the above notebooks.
 
 If you would like to run these notebooks locally on your own installation, please first install the following:
