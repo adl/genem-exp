@@ -1,0 +1,16 @@
+channels:
+  - adl/label/dev
+  - conda-forge
+  - r
+  - defaults
+  - bfurneaux
+dependencies:
+  - spot=2.7.4.dev.55
+  - graphviz
+  - r-irkernel
+  - r-ggplot2
+  - r-tidyverse
+  - r-tikzdevice
+  - pandas
+  - scipy
+

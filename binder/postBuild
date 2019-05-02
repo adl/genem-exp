@@ -1,0 +1,18 @@
+dir=`jupyter --config-dir`
+mkdir -p "$dir/custom"
+cp ~/binder/custom.css "$dir/custom"
+ln -s /usr/share/fonts/truetype/lato/Lato-Regular.ttf "$dir/custom"
+condaroot=`conda info --root`
+#cp "$condaroot"/share/doc/spot/examples/*.ipynb ~/
+jupyter trust ~/bench-app1/*.ipynb
+
+cat >install.r <<EOF
+r <- getOption('repos')
+r['CRAN'] <- 'https://cloud.r-project.org'
+options(repos = r)
+install.packages('tables')
+EOF
+Rscript install.r
+rm install.r
+
+rm -Rf binder

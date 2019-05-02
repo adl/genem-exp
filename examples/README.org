@@ -1,0 +1,127 @@
+# Evaluate the next line before exporting.
+# (setq org-export-allow-bind-keywords t)
+#+BIND: org-html-htmlize-output-type css
+#+TITLE: Examples small enough to be solved by hand
+#+OPTIONS: toc:nil author:nil date:nil num:nil creator:nil html-postamble:nil
+#+LANGUAGE: en
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="spot.css" />
+
+* Small problems and their solutions
+
+The following automata are all non-empty with some generic acceptance
+condition.  The first column (*problem*) show the automata as marked
+graphs.  The fourth column (*solution*) highlight highlight one
+accepting lasso (i.e., an accepting cycle with a prefix that connect
+it to the initial state).  There is no guarantee that the accepting
+cycle is unique.
+
+# Generate the table of all files.  This assumes the files have been
+# generated first, which you can do with the very last block of the
+# file if needed.
+#+begin_src sh :exports results :results output raw
+echo "|problem|states|edges|sets|solution|source|product operands|"
+echo "|-"
+for N in `seq 1 25`; do
+  s=`autfilt --stats='%s|%e|%a' "aut$N.hoa"`
+  echo "|[[file:aut$N.pdf][=aut$N.pdf=]]| $s |[[file:aut$N-acc.pdf][=aut$N-acc.pdf=]]|[[file:aut$N.hoa][=aut$N.hoa=]]|[[file:aut$N-src.hoa][=aut$N-src.hoa=]]|"
+done
+#+end_src
+
+#+RESULTS:
+| problem     | states | edges | sets | solution        | source      | product operands |
+|-------------+--------+-------+------+-----------------+-------------+------------------|
+| [[file:aut1.pdf][=aut1.pdf=]]  |     11 |    23 |    8 | [[file:aut1-acc.pdf][=aut1-acc.pdf=]]  | [[file:aut1.hoa][=aut1.hoa=]]  | [[file:aut1-src.hoa][=aut1-src.hoa=]]   |
+| [[file:aut2.pdf][=aut2.pdf=]]  |     11 |    24 |    8 | [[file:aut2-acc.pdf][=aut2-acc.pdf=]]  | [[file:aut2.hoa][=aut2.hoa=]]  | [[file:aut2-src.hoa][=aut2-src.hoa=]]   |
+| [[file:aut3.pdf][=aut3.pdf=]]  |     10 |    21 |    8 | [[file:aut3-acc.pdf][=aut3-acc.pdf=]]  | [[file:aut3.hoa][=aut3.hoa=]]  | [[file:aut3-src.hoa][=aut3-src.hoa=]]   |
+| [[file:aut4.pdf][=aut4.pdf=]]  |     12 |    22 |    8 | [[file:aut4-acc.pdf][=aut4-acc.pdf=]]  | [[file:aut4.hoa][=aut4.hoa=]]  | [[file:aut4-src.hoa][=aut4-src.hoa=]]   |
+| [[file:aut5.pdf][=aut5.pdf=]]  |      7 |    14 |    8 | [[file:aut5-acc.pdf][=aut5-acc.pdf=]]  | [[file:aut5.hoa][=aut5.hoa=]]  | [[file:aut5-src.hoa][=aut5-src.hoa=]]   |
+| [[file:aut6.pdf][=aut6.pdf=]]  |     21 |    50 |    8 | [[file:aut6-acc.pdf][=aut6-acc.pdf=]]  | [[file:aut6.hoa][=aut6.hoa=]]  | [[file:aut6-src.hoa][=aut6-src.hoa=]]   |
+| [[file:aut7.pdf][=aut7.pdf=]]  |     20 |    44 |    8 | [[file:aut7-acc.pdf][=aut7-acc.pdf=]]  | [[file:aut7.hoa][=aut7.hoa=]]  | [[file:aut7-src.hoa][=aut7-src.hoa=]]   |
+| [[file:aut8.pdf][=aut8.pdf=]]  |     25 |    60 |    8 | [[file:aut8-acc.pdf][=aut8-acc.pdf=]]  | [[file:aut8.hoa][=aut8.hoa=]]  | [[file:aut8-src.hoa][=aut8-src.hoa=]]   |
+| [[file:aut9.pdf][=aut9.pdf=]]  |     21 |    30 |    8 | [[file:aut9-acc.pdf][=aut9-acc.pdf=]]  | [[file:aut9.hoa][=aut9.hoa=]]  | [[file:aut9-src.hoa][=aut9-src.hoa=]]   |
+| [[file:aut10.pdf][=aut10.pdf=]] |     14 |    31 |    8 | [[file:aut10-acc.pdf][=aut10-acc.pdf=]] | [[file:aut10.hoa][=aut10.hoa=]] | [[file:aut10-src.hoa][=aut10-src.hoa=]]  |
+| [[file:aut11.pdf][=aut11.pdf=]] |     12 |    23 |   16 | [[file:aut11-acc.pdf][=aut11-acc.pdf=]] | [[file:aut11.hoa][=aut11.hoa=]] | [[file:aut11-src.hoa][=aut11-src.hoa=]]  |
+| [[file:aut12.pdf][=aut12.pdf=]] |     10 |    20 |   16 | [[file:aut12-acc.pdf][=aut12-acc.pdf=]] | [[file:aut12.hoa][=aut12.hoa=]] | [[file:aut12-src.hoa][=aut12-src.hoa=]]  |
+| [[file:aut13.pdf][=aut13.pdf=]] |     21 |    57 |   16 | [[file:aut13-acc.pdf][=aut13-acc.pdf=]] | [[file:aut13.hoa][=aut13.hoa=]] | [[file:aut13-src.hoa][=aut13-src.hoa=]]  |
+| [[file:aut14.pdf][=aut14.pdf=]] |     22 |    75 |   16 | [[file:aut14-acc.pdf][=aut14-acc.pdf=]] | [[file:aut14.hoa][=aut14.hoa=]] | [[file:aut14-src.hoa][=aut14-src.hoa=]]  |
+| [[file:aut15.pdf][=aut15.pdf=]] |     11 |    13 |   16 | [[file:aut15-acc.pdf][=aut15-acc.pdf=]] | [[file:aut15.hoa][=aut15.hoa=]] | [[file:aut15-src.hoa][=aut15-src.hoa=]]  |
+| [[file:aut16.pdf][=aut16.pdf=]] |     19 |    47 |   16 | [[file:aut16-acc.pdf][=aut16-acc.pdf=]] | [[file:aut16.hoa][=aut16.hoa=]] | [[file:aut16-src.hoa][=aut16-src.hoa=]]  |
+| [[file:aut17.pdf][=aut17.pdf=]] |     14 |    30 |   16 | [[file:aut17-acc.pdf][=aut17-acc.pdf=]] | [[file:aut17.hoa][=aut17.hoa=]] | [[file:aut17-src.hoa][=aut17-src.hoa=]]  |
+| [[file:aut18.pdf][=aut18.pdf=]] |     20 |    51 |   16 | [[file:aut18-acc.pdf][=aut18-acc.pdf=]] | [[file:aut18.hoa][=aut18.hoa=]] | [[file:aut18-src.hoa][=aut18-src.hoa=]]  |
+| [[file:aut19.pdf][=aut19.pdf=]] |     18 |    39 |   16 | [[file:aut19-acc.pdf][=aut19-acc.pdf=]] | [[file:aut19.hoa][=aut19.hoa=]] | [[file:aut19-src.hoa][=aut19-src.hoa=]]  |
+| [[file:aut20.pdf][=aut20.pdf=]] |     17 |    35 |   16 | [[file:aut20-acc.pdf][=aut20-acc.pdf=]] | [[file:aut20.hoa][=aut20.hoa=]] | [[file:aut20-src.hoa][=aut20-src.hoa=]]  |
+| [[file:aut21.pdf][=aut21.pdf=]] |     18 |    34 |   16 | [[file:aut21-acc.pdf][=aut21-acc.pdf=]] | [[file:aut21.hoa][=aut21.hoa=]] | [[file:aut21-src.hoa][=aut21-src.hoa=]]  |
+| [[file:aut22.pdf][=aut22.pdf=]] |     17 |    42 |   16 | [[file:aut22-acc.pdf][=aut22-acc.pdf=]] | [[file:aut22.hoa][=aut22.hoa=]] | [[file:aut22-src.hoa][=aut22-src.hoa=]]  |
+| [[file:aut23.pdf][=aut23.pdf=]] |     16 |    32 |   16 | [[file:aut23-acc.pdf][=aut23-acc.pdf=]] | [[file:aut23.hoa][=aut23.hoa=]] | [[file:aut23-src.hoa][=aut23-src.hoa=]]  |
+| [[file:aut24.pdf][=aut24.pdf=]] |     18 |    35 |   16 | [[file:aut24-acc.pdf][=aut24-acc.pdf=]] | [[file:aut24.hoa][=aut24.hoa=]] | [[file:aut24-src.hoa][=aut24-src.hoa=]]  |
+| [[file:aut25.pdf][=aut25.pdf=]] |     15 |    32 |   16 | [[file:aut25-acc.pdf][=aut25-acc.pdf=]] | [[file:aut25.hoa][=aut25.hoa=]] | [[file:aut25-src.hoa][=aut25-src.hoa=]]  |
+
+
+* Sources
+
+The rest of this page discuss the source of these examples.
+
+** Source in HOA format
+
+The =aut{1-25}.hoa= files contain the corresponding automaton definition in HOA format.
+
+To build =autN.pdf= and =autN-acc.pdf= from =autN.hoa=, do:
+#+begin_src sh
+  autfilt autN.hoa --dot='barf(Lato)g' |
+      dot -T pdf > autN.pdf
+  autfilt autN.hoa --highlight-accepting-run=5 --dot='barf(Lato)g' |
+      dot -T pdf > autN-acc.pdf
+#+end_src
+
+The =--dot=g= and =--highlight-accepting-run= options are new in [[https://spot.lrde.epita.fr/][Spot]] 2.8.
+
+** Sources as a product
+
+All these automata where randomly generated as the product of two
+non-empty random automata, with constraints on the number of states
+and acceptance conditions listed below.
+
+| automata | left operand      | right operand             |
+|----------+-------------------+---------------------------|
+|      1-5 | 4-state Streett-2 | 4-state Rabin-2           |
+|     6-10 | 5-state Streett-2 | 5-state Rabin-2           |
+|    11-15 | 5-state random 8  | 5-state parity min odd 8  |
+|    16-25 | 5-state random 8  | 5-state parity min even 8 |
+
+The =random 8= acceptance used in the last 15 automata allows
+repetitions.
+
+Those two sources automata are stored in =aut{1-25}-src.hoa=.
+The right operand appears befor the left operand in this file.
+
+=autN.hoa= can be regenerated from =autN-src.hoa= as follows:
+
+#+begin_src
+autfilt -Hl autN-src.hoa | sed 1d | autfilt - --product autN-src.hoa > autN.hoa
+#+end_src
+
+The combination of =autfilt -Hl= to display one automaton per line and
+=sed 1d= to delete the first line, actually outputs the second
+automaton and pipe it to the last =autfilt= that performs a
+=--product= with the first automaton in =autN-src.hoa=.
+
+The product operand used were generated with different constraints:
+
+
+** Refresh
+
+The following script regenerates all files using the commands described above.
+
+#+begin_src sh
+for N in `seq 1 25`; do
+    autfilt -Hl aut$N-src.hoa |
+        sed 1d |
+        autfilt - --product aut$N-src.hoa > aut$N.hoa
+
+    autfilt aut$N.hoa --dot='barf(Lato)g' |
+        dot -T pdf > aut$N.pdf
+
+    autfilt aut$N.hoa --highlight-accepting-run=5 --dot='barf(Lato)g' |
+        dot -T pdf > aut$N-acc.pdf
+done
+#+end_src

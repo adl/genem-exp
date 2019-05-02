@@ -1,0 +1,7 @@
+fonts-lato
+tzdata
+texlive-latex-base
+texlive-latex-recommended
+texlive-fonts-recommended
+texlive-pictures
+preview-latex-style
