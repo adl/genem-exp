@@ -11,7 +11,7 @@ The following files are supplied:
 - [`b3.hoa.gz`](b3.hoa.gz): Automata for the `Rabin` dataset
 - [`b4.hoa.gz`](b4.hoa.gz): Automata for the `Streett` dataset
 - [`b5.hoa.gz`](b5.hoa.gz): Automata for the `parity-like` dataset
-- [`generic-is-empty.ipynb`](generic-is-empty.ipynb) [![nbviewer](https://github.com/jupyter/design/blob/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.jupyter.org/github/adl/genem-exp/blob/master/bench-app1/generic-is-empty.ipynb): Jupyter notebook containing Python code for:
+- [`generic-is-empty.ipynb`](generic-is-empty.ipynb) [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg?sanitize=true)](https://nbviewer.jupyter.org/github/adl/genem-exp/blob/master/bench-app1/generic-is-empty.ipynb): Jupyter notebook containing Python code for:
   - Python implementation of the `is_empty()` algorithm from the paper (called `is_empty1()` in the notebook)
   - Python implementation of the optimizations described in the *Application 1* section (called `is_empty2()` in the notebook)
   - a version of `is_empty()` that displays a trace of its execution (with intermediate automata), so that one can execute the algorithm on any automaton.
@@ -32,7 +32,7 @@ The following files are supplied:
   - `aut/sets`  number of acceptance sets in the input automaton
   - `aut/acc`  acceptance condition used by the input automaton
   - `/bench`  name of the dataset the automaton belongs to
-- [`generic-is-empty-plot.ipynb`](generic-is-empty-plot.ipynb) [![nbviewer](https://github.com/jupyter/design/blob/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.jupyter.org/github/adl/genem-exp/blob/master/bench-app1/generic-is-empty-plot.ipynb): Jupyter notebook containing R code for generating tables and figures from `bench.csv`.
+- [`generic-is-empty-plot.ipynb`](generic-is-empty-plot.ipynb) [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg?sanitize=true)](https://nbviewer.jupyter.org/github/adl/genem-exp/blob/master/bench-app1/generic-is-empty-plot.ipynb): Jupyter notebook containing R code for generating tables and figures from `bench.csv`.
 - [`spot-2.7.4.dev.tar.gz`](spot-2.7.4.dev.tar.gz): The development version of Spot used for this benchmark.  This will eventually be released as Spot 2.8.
 
 
