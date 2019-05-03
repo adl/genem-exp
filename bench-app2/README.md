@@ -3,35 +3,35 @@ Application 2: Probabilistic Model Checking
 
 This directory contains artifacts for the benchmark of application 2 (probabilistic model checking) in our ATVA'19 submission titled *Generic Emptiness Check for Fun and Profit*.
 
-This benchmark was run with an extension of PRISM version 4.4. A tarball of this version is given below. The benchmarks were run with the explicit engine of PRISM on a computer with two Intel E5-2680 8-core CPUs at 2.70~GHz with 384GB of RAM running Linux and a time-out of 30 min and 10GB memory limit.
+This benchmark was run with an extension of PRISM version 4.4. A tarball of this version is given below. The benchmarks were run with the explicit engine of PRISM on a computer with two Intel E5-2680 8-core CPUs at 2.70GHz with 384GB of RAM running Linux and a time-out of 30 min and 10GB memory limit.
 
 The following files are supplied:
-- [`logs.tar.gz`]: The output of PRISM during the benchmark
-- [`mutual4.ltl`]: The LTL formulas used in the benchmark in prefix form. Please note, that formulas, we used with `Pmin=?` in the benchmarks, are negated, as this is also done by PRISM
-- [`mutual4.nm`]: The model file for the mutual exclusion problem
-- [`mutual4.pctl`]: The properties used in the benchmark
-- [`pmc.csv`]: Result of the experiment as a CSV file. Each line correspond to a property and a tool used for the automata generation. The following columns are used:
+- [`logs.tar.gz`](logs.tar.gz): The output of PRISM during the benchmark
+- [`mutual4.ltl`](mutual4.ltl): The LTL formulas used in the benchmark in prefix form. Please note, that formulas, we used with `Pmin=?` in the benchmarks, are negated, as this is also done by PRISM
+- [`mutual4.nm`](mutual4.nm): The model file for the mutual exclusion problem
+- [`mutual4.pctl`](mutual4.pctl): The properties used in the benchmark
+- [`pmc.csv`](pmc.csv): Result of the experiment as a CSV file. Each line correspond to a property and a tool used for the automata generation. The following columns are used:
     - `formula`: the property to be checked
     - `tool`: the tool we used to generate the automata: `ltl2tgba` stands for SPOT (version 2.7.4) and the columns `Emerson-Lei` in the paper. `rabinizer` stands for Rabinizer and the columns `Generalized Rabin` in the paper. `std` stands for the PRISM internal ltl2dstar version and the columns `Rabin` in the paper
     - `MC time`: the overall model checking time in s
     - `MEC checking time`: the run-time for the MEC analysis in seconds. In case of `ltl2tgba` our algorithm is used, in the other cases the standard internal PRISM algorithm for generalized Rabin or Rabin acceptance. Please note, that in the lines where `ltl2tgba` has been used as tool, we just write `-`, as the according running time is covered by `MEC checking time EL`
-    - `MEC checking time EL`: the run-time for the MEC analysis in s, if our algorithm is generally applied, regardless of the actual acceptance. 
+    - `MEC checking time EL`: the run-time for the MEC analysis in s, if our algorithm is generally applied, regardless of the actual acceptance.
     - `automaton size`: the number of states in the constructed automaton
     - `product size`: the number of states in the constructed product out of the automaton and the model
     - `automata translation time`: the time needed for the translation of the LTL formula into the deterministic automaton. The value is measured in seconds.
     - `acceptance sets`: The number of acceptance sets
-- [`prism-el.tar.gz`]: Our extended version of PRISM v.4.4. For instruction to compile and run it see below.
+- [`prism-el.tar.gz`](prism-el.tar.gz): Our extended version of PRISM v.4.4. For instruction to compile and run it see below.
 
-Compiling and runnig PRISM
-==========================
+Compiling and running PRISM
+===========================
 
 If you would like to run our benchmark, please install at the following:
-- Please install Spot version 2.7.4. For instructions see [here](https://spot.lrde.epita.fr/install.html)
-- Please install Rabinizer4. We used the version integrated in [owl 18.06](https://owl.model.in.tum.de/)
+- Please install Spot [version 2.7.4](http://www.lrde.epita.fr/dload/spot/spot-2.7.4.tar.gz). For instructions see [here](https://spot.lrde.epita.fr/install.html).
+- Please install Rabinizer4. We used the version integrated in [owl 18.06](https://owl.model.in.tum.de/).
 - a Java JDK >= 10 for executing Rabinizer4. If you just want compile and run PRISM, JDK >= 1.7 is necessary
 - the usual build tools (C/C++ compiler, GNU Make)
 
-At first step, please [download](prism.el.tar.gz) our PRISM implementation and unzip it via
+At first step, please [download](prism-el.tar.gz) our PRISM implementation and unzip it via
 
     $ tar xzf prism-el.tar.gz
 
@@ -41,7 +41,7 @@ To compile PRISM, go to the `prism-el/prism/` subdirectory and execute `make`:
     $ cd prism-el/prism
     $ make
 
-This will work on Mac OS X and Linux. 
+This will work on Mac OS X and Linux.
 
 If you have trouble compiling PRISM, please try downloading a source distribution from <http://www.prismmodelchecker.org/download.php> and try whether that works. We also refer to <http://www.prismmodelchecker.org/manual/InstallingPRISM/CommonProblemsAndQuestions>.
 
