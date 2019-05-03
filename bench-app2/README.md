@@ -64,15 +64,13 @@ PRISM can execute external tools to transform an LTL formula into a deterministi
 
 PRISM accepts the following flags relevant to our paper:
 
-----------------------  ----------------------------------------------------------------------------------------------------------------------------------------------------------
-`-pf 'PROPERTY'`        Checks the property PROPERTY
-`-explicit`             Turns on the explicit engine of PRISM
-`-javamaxmem X`         Set a memory limit to X (we used 10g)
-`-ltl2datool SCRIPT`    Use the script SCRIPT to execute an external LTL-to-DA translation. If omitted, PRISM's internal ltl2dstar is used
-`-ltl2dasyntax SYNTAX`  Present the formula in SYNTAX form to the external script. Use `lbt` for `hoa-ltl2tgba-dela-for-prism` and `rabinizer` for `hoa-rabinizer4-dgra-for-prism`
-`-timeout N`            Set a time-out of N seconds (we used 1800)
-`-force-elcheck`        Enforces to use the Emerson-Lei check regardless of the acceptance
-----------------------  ----------------------------------------------------------------------------------------------------------------------------------------------------------
+- `-pf 'PROPERTY'`: Checks the property PROPERTY
+- `-explicit`: Turns on the explicit engine of PRISM
+- `-javamaxmem X`: Set a memory limit to X (we used 10g)
+- `-ltl2datool SCRIPT`: Use the script SCRIPT to execute an external LTL-to-DA translation. If omitted, PRISM's internal ltl2dstar is used
+- `-ltl2dasyntax SYNTAX`: Present the formula in SYNTAX form to the external script. Use `lbt` for `hoa-ltl2tgba-dela-for-prism` and `rabinizer` for `hoa-rabinizer4-dgra-for-prism`
+- `-timeout N`: Set a time-out of N seconds (we used 1800)
+- `-force-elcheck`: Enforces to use the Emerson-Lei check regardless of the acceptance
 
 The model is taken as positional argument. As an example, to execute PRISM with Rabinizer and our Emerson-Lei emptiness check for the property `Pmax=? [((G F p1=0) | (F G p2!=0)) & ((G F p2=0) | (F G p3!=0))]`, execute:
 
