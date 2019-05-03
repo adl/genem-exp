@@ -1,0 +1,7 @@
+// Propeties taken from Hahn et al., “Lazy Probabilistic Model Checking without Determinisation”
+! & & & G F p0 G F p1 G F p2 G F p3
+& | G F p0 F G p1 | G F ! p1 F G p2
+& & | G F p0 F G p1 | G F ! p1 F G p2 | G F ! p2 F G ! p0
+! & & | | G F p0 G F p1 F G p2 G F ! p1 G F p2
+& & | | G p0 G p1 G p2 | | F G p3 G F p4 G F p5 | | F G ! p4 G F ! p3 G F p5
+! | | | F G p0 F G p1 G F p2 & & F G p3 G F p4 G F p5
