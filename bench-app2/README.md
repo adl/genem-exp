@@ -7,7 +7,7 @@ This benchmark was run with an extension of PRISM version 4.4. A tarball of this
 
 The following files are supplied:
 - [`logs.tar.gz`]: The output of PRISM during the benchmark
-- [`mutual4.ltl`]: The LTL formulas used in the benchmark in prefix form. Please note, that formulas, we used with \(\mathit{Pr}^{\min}\) in the benchmarks, are negated, as this is also done by PRISM
+- [`mutual4.ltl`]: The LTL formulas used in the benchmark in prefix form. Please note, that formulas, we used with $\mathit{Pr}^{\min}$ in the benchmarks, are negated, as this is also done by PRISM
 - [`mutual4.nm`]: The model file for the mutual exclusion problem
 - [`mutual4.pctl`]: The properties used in the benchmark
 - [`pmc.csv`]: Result of the experiment as a CSV file. Each line correspond to a property and a tool used for the automata generation. The following columns are used:
