@@ -5,6 +5,7 @@ channels:
   - defaults
   - bfurneaux
 dependencies:
+  - python=3.6
   - spot=2.7.4.dev.55
   - graphviz
   - r-irkernel
