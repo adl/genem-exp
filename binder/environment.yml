@@ -1,9 +1,7 @@
 channels:
   - adl/label/dev
-  - conda-forge
-  - r
+  - conda-forge/label/cf202003
   - defaults
-  - bfurneaux
 dependencies:
   - python=3.6
   - spot=2.7.4.dev.55
@@ -11,7 +9,7 @@ dependencies:
   - r-irkernel
   - r-ggplot2
   - r-tidyverse
-  - r-tikzdevice
+  - bfurneaux::r-tikzdevice
   - pandas
   - scipy
 
